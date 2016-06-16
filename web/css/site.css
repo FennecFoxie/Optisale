@@ -1,0 +1,233 @@
+html,
+body {
+    height: 100%;
+    color: #575656;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 0px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    background: url(../images/bg.png) no-repeat;
+    color: #fffefe;
+    height: 500px;
+    margin: 0;
+    border-radius: 0;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+    background: transparent;
+    border: 2px solid #2C3E50;
+    color: #2C3E50;
+    transition: all 0.3s linear;
+}
+
+.jumbotron .btn:hover {
+    box-shadow: inset 0 0 50px 30px #81CFE0;
+    /*color: #ffffff;*/
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+.navbar .navbar-nav {
+    margin-top: 30px;
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+ul.nav a {
+    font-weight: lighter;
+    text-transform: uppercase;
+    border-top: 1px solid #fffefe;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: all 0.5s;
+    color: #fffefe;
+    font-weight: bold;
+}
+
+ul.nav a:hover {
+    box-shadow: inset 0 3px 0 0 #fffefe;
+    background: transparent;
+}
+
+
+.btn, .btn-primary {
+    border-radius: none;
+}
+
+label {
+    font-weight: lighter;
+}
+
+.footer-object {
+    margin-left: 40px;
+}
+
+h1.graphic-text {
+    font-weight: bold;
+    margin-top: 60px;
+    text-shadow: 1px 1px 0px #000,
+    -1px 1px 6px #000,
+    1px -1px 6px #000,
+    -1px -1px 6px #000,
+    1px 0px 0px #000,
+    0px 1px 6px #000,
+    0px 0px 0px #000,
+    0px -1px 0px #000,
+    -1px 0px 0px #000;
+}
+
+p.lead {
+    font-size: 28px;
+    text-shadow: 1px 1px 0px #000,
+    -1px 1px 6px #000,
+    1px -1px 6px #000,
+    -1px -1px 6px #000,
+    1px 0px 0px #000,
+    0px 1px 6px #000,
+    0px 0px 0px #000,
+    0px -1px 0px #000,
+    -1px 0px 0px #000;
+    /*text-shadow: 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def;*/
+}
+
+.heading {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.about {
+    margin-top: 0;
+    padding: 30px 0;
+    text-align: justify;
+    background: #f5f5f5;
+}
+
+.counts {
+    padding: 30px 0;
+}
+
+.btn {
+    background: #1c9e90;
+    color: #fffefe;
+    border: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin: auto;
+    transition: background 0.3s ease-in;
+}
+
+.btn:hover {
+    background: #12645B;
+}
+
+
+
+.count-form-label {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.check {
+    padding: 2px 0;
+}
+
+.check input {
+    margin: -2px 3px 0 0;
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+a {
+    color: #1c9e90;
+    transition: color 0.3s ease-in;
+}
+
+a:hover {
+    color: #12645B;
+}
+
