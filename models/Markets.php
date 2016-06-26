@@ -58,7 +58,7 @@ class Markets extends \yii\db\ActiveRecord
 
 
     // получение экспертных оценок по выбранным рынкам и критериям
-    public static function getProductReviews($markets, $criteria) 
+    public static function getMarketReviews($markets, $criteria) 
     {
         $reviews = MarketCriteria::find()->where(['idMarket' => $markets, 'idCriteria' => $criteria])->asArray()->all();
         return $reviews;

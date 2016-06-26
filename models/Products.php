@@ -62,21 +62,4 @@ class Products extends \yii\db\ActiveRecord
         return $reviews;
     }
 
-    public function compositeReviews($productReviews, $marketReviews)
-    {
-        return null;
-    }
-
-    public function productMarketMembershipFunction($products, $markets, $criteria)
-    {
-
-        return $result;
-    }
-
-
-
-    publiс function getThereshold()
-    {
-        
-    }
 }

@@ -10,7 +10,9 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\CountForm;
 use app\models\Products;
+use app\models\Markets;
 use app\models\ProductCriteria;
+use yii\web\Session;
 
 
 class SiteController extends Controller
@@ -54,28 +56,61 @@ class SiteController extends Controller
     public function actionIndex()
 
     {
-       $modelCount = new CountForm();
+       $modelCount = new CountForm(['scenario' => 'some_scenario']);
        $modelContact = new ContactForm();
+
+//      $session = new Session;
+// $session->open();
+// $session['send'] = false;
        // $products = Products::getAllProducts();
 
-       if ($modelCount->load(Yii::$app->request->post())) {
+
+       if ($modelContact->load(Yii::$app->request->post()) && $modelContact->contact(Yii::$app->params['adminEmail'])) {
+        Yii::$app->session->setFlash('contactFormSubmitted');
+        // $session['send'] = 'true';
+
+        return $this->refresh();
+    }
+
+    if ($modelCount->load(Yii::$app->request->post())) {
         if ($modelCount->validate()) {
             $products = $_POST['CountForm']['products'];
             $markets = $_POST['CountForm']['markets'];
             $criteria = $_POST['CountForm']['criteria'];
 
+            $userdata0 = $modelCount->compositeReviews(Products::getProductReviews($products, $criteria), Markets::getMarketReviews($markets, $criteria)); 
 
+            $userdata1 = $modelCount->getThereshold($userdata0);
 
-            return $this->render('about', [
-                'userdata' => $_POST,
+            $userdata2 = $modelCount->applyThereshold($userdata0, $userdata1);
+
+            // $userdata1 = Products::getProductReviews($products, $criteria);
+
+             // $userdata2 = Markets::getMarketReviews($markets, $criteria);
+            return $this->render('about1', [
+                'userdata0' => $userdata0,
+                'userdata1' => $userdata1,
+                'userdata2' => $userdata2,
+                'products' => $products,
+                'markets' => $markets,
+                'criteria' => $criteria,
+                // 'send' => $session['send'],
                 ]);
-            return;
         }
     }
     return $this->render('index', [
         'modelCount' => $modelCount,
         'modelContact' => $modelContact,
         ]);
+}
+
+
+protected function performAjaxValidation($model)
+{
+    if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return ActiveForm::validate($model);
+    }
 }
 
 public function actionLogin()
@@ -120,12 +155,20 @@ public function actionCounts()
 
     if ($model->load(Yii::$app->request->post())) {
         if ($model->validate()) {
-            // form inputs are valid, do something here
-            return;
+            $products = $_POST['CountForm']['products'];
+            $markets = $_POST['CountForm']['markets'];
+            $criteria = $_POST['CountForm']['criteria'];
+
+
+
+            return $this->render('index', [
+                'userdata' => $_POST,
+                ]);
+            
         }
     }
 
-    return $this->render('counts', [
+    return $this->render('_counts', [
         'model' => $model,
         ]);
 }

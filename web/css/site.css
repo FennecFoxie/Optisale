@@ -15,9 +15,14 @@ body {
     padding: 0px 15px 20px;
 }
 
+.container {
+/*    width: 960px;
+    margin: 0 auto;*/
+}
+
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
+    /*background-color: #f5f5f5;*/
     border-top: 1px solid #ddd;
     padding-top: 20px;
 }
@@ -116,7 +121,17 @@ a.desc:after {
     text-align: center;
 }
 
+ul.nav {
+    margin-top: 30px;
+}
+
+ul.nav li {
+    display: inline-block;
+
+}
+
 ul.nav a {
+    display: inline-block;
     font-weight: lighter;
     text-transform: uppercase;
     border-top: 1px solid #fffefe;
@@ -127,8 +142,12 @@ ul.nav a {
     font-weight: bold;
 }
 
-ul.nav a:hover {
+ul.nav li a:hover {
     box-shadow: inset 0 3px 0 0 #fffefe;
+    background: transparent;
+}
+
+a:active {
     background: transparent;
 }
 
@@ -229,5 +248,10 @@ a {
 
 a:hover {
     color: #12645B;
+}
+
+span[data-toggle="tooltip"] {
+        color: #1c9e90;
+        cursor: pointer;
 }
 

@@ -30,9 +30,8 @@ use yii\captcha\Captcha;
 <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
         <p>
-            Если у вас есть идеи, предложения или вопросы, свяжитесь пожлауйста с нами, заполнив форму. Спасибо.
+            Если у вас есть идеи, предложения или вопросы, свяжитесь пожлауйста с нами, заполнив форму
         </p>
-
 
         <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
@@ -50,11 +49,31 @@ use yii\captcha\Captcha;
             <?= $form->field($model, 'body')->textArea(['rows' => 6])->label('Сообщение') ?>
 
             <div class="form-group text-center">
-                <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary', 'id'=>'contact','name' => 'contact-button', 'data-toggle'=>'modal', 'data-target'=>'#success']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>
 
         </div>
     </div>
+       <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
+    
+        <div class="alert alert-success">
+            Спасибо за обращение к нам. Мы постараемся ответить вам как можно скорее.
+        </div>
+
+         <?php endif; ?>
+<!-- <div id="success" class="modal fade">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+<h4 class="modal-title">Спасибо за сообщение!</h4>
+</div>
+<div class="modal-body">Сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.</div>
+<div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
+</div>
+</div>
+</div> -->
+
+
 </div>
